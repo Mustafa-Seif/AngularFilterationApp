@@ -1,0 +1,28 @@
+<section class="dataList">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Join data</th>
+        <th scope="col">Department</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Experience</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.joinData }}</td>
+        <td>{{ employee.department }}</td>
+        <td>{{ employee.salary | number }}</td>
+        <td>{{ employee.experience }}</td>
+      </tr>
+	  <tr *ngIf="employees.length == 0">
+		<th> <h1 class="text-center">NO INFO</h1> </th>
+	  </tr>
+    </tbody>
+  </table>
+  <button (click)="handleFilteration()" *ngIf="employees.length > 0">kkk</button>
+</section>

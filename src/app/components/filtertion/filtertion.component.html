@@ -1,0 +1,71 @@
+<div class="row mt-5 custom-container">
+  <section class="filterion col-md-6">
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      [title]="panelOpenState ? 'open filters panel' : 'closed filters panel'"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> filters panel </mat-panel-title>
+        <mat-panel-description>
+          Currently {{ panelOpenState ? "open" : "closed" }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <form>
+        <mat-form-field class="example-full-width w-100">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="filterData.name" name="name" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width w-100">
+          <mat-label>Join data</mat-label>
+          <input
+            matInput
+            [(ngModel)]="filterData.joinData"
+            type="date"
+            name="JoinData"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Department</mat-label>
+          <mat-select [(ngModel)]="filterData.department" name="department">
+            <mat-option value="Finance">Finance</mat-option>
+            <mat-option value="IT">IT</mat-option>
+            <mat-option value="Sales">Sales</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width w-100">
+          <mat-label>Salary</mat-label>
+          <input
+            matInput
+            [(ngModel)]="filterData.salary"
+            type="number"
+            name="salary"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Experience</mat-label>
+          <mat-select [(ngModel)]="filterData.experience" name="experience">
+            <mat-option value="Less than a year">Less than a year</mat-option>
+            <mat-option value="From 1-3 years">From 1-3 years</mat-option>
+            <mat-option value="3 years or above">3 years or above</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="d-flex justify-content-between">
+          <button mat-raised-button color="primary">Filter</button>
+          <button mat-raised-button color="warn" (click)="handleClear()">
+            clear
+          </button>
+        </div>
+      </form>
+    </mat-expansion-panel>
+  </section>
+  <app-data-list
+    class="col-md-6"
+    [filterVal]="filterData"
+    (ActionFilter)="handleFilter($event)"
+  ></app-data-list>
+</div>
+

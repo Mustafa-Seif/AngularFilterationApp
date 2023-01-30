@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+//   height: 100vh;
+//   overflow: hidden;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: linear-gradient(to bottom, rgb(217, 218, 152) , rgb(105, 137, 185));
+}
+
+.custom-container {
+  width: 95%;
+  margin: auto;
+}
