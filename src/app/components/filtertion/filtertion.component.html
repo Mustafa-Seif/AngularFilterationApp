@@ -1,12 +1,12 @@
 <div class="row mt-5 custom-container">
-  <section class="filterion col-md-6">
+  <section class="filterion col-md-6 mb-3">
     <mat-expansion-panel
       (opened)="panelOpenState = true"
       [title]="panelOpenState ? 'open filters panel' : 'closed filters panel'"
       (closed)="panelOpenState = false"
     >
       <mat-expansion-panel-header>
-        <mat-panel-title> filters panel </mat-panel-title>
+        <mat-panel-title class="fw-bolder fs-5"> filters panel </mat-panel-title>
       </mat-expansion-panel-header>
       <form [formGroup]="filterForm" (ngSubmit)="handleSubmit()">
         <mat-form-field class="example-full-width w-100" *ngFor="let input of formInputs">
