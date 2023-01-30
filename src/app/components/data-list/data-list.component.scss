@@ -3,4 +3,9 @@
     overflow: scroll;
     background-color: #fff;
     // border: solid 1px red;
+    tr{
+        td{
+            cursor: pointer;
+        }
+    }
 }

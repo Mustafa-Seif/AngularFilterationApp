@@ -1,4 +1,5 @@
-export interface ObjInputFilter {
+export interface FormInterface {
+    id:number,
     name: string,
     joinData: string,
     department: string,

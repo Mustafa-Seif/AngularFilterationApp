@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ObjInputFilter } from 'src/app/interfaces/obj-input-filter';
 import { EmployeesService } from 'src/app/services/employees.service';
+import { Router } from '@angular/router';
+import { FormInterface } from 'src/app/interfaces/form-interface';
 
 @Component({
   selector: 'app-data-list',
@@ -9,36 +10,38 @@ import { EmployeesService } from 'src/app/services/employees.service';
 })
 export class DataListComponent {
   // GET PASSED DATA FROM PARENT COMPONENT(FILTERATIOM)
-  @Input() filterVal: ObjInputFilter = {
+  @Input() filterVal: FormInterface = {
+    id:0,
     name: '',
     joinData: '',
     department: '',
     salary: 0,
     experience: '',
   };
+  // @Output()ActionFilter= new EventEmitter<any>();///////////////////////////////////////////////////////
  
   // @Output ActionFilter = new EventEmitter<any>();
 
-  employees: ObjInputFilter[] = [];
-  constructor(private employeeData: EmployeesService) {}
+  employees: FormInterface[] = [];
+  constructor(private employeeData: EmployeesService , private route:Router) {}
   // GET FILTER VALUE FROM PARENT COMPONENT
 
-  // GET EMPLOYEES DATA FROM EMPLOYEES SERVICE
-  ngOnInit(): void {
-    this.employeeData.getEmployeesData().subscribe((val) => (this.employees = val));
-    // this.ActionFilter.emit(handleFilteration)
-  }
  
-  // HANDLE GET & FILTER THE EMPLOYYEES DATA 
-  handleFilteration(): void {
+  ngOnInit(): void {
+    // GET EMPLOYEES DATA FROM EMPLOYEES SERVICE
+    this.employeeData.getEmployeesData().subscribe((val) => (this.employees = val));
+
+    // this.ActionFilter.emit(this.handleFilteration)/////////////////////////////////////////////////////////
+  }
+
+
+
+  ngDoCheck(){
     this.employeeData.getEmployeesData().subscribe(
       (val) =>
         (this.employees = val.filter((el) => {
           return (
-            el.name.toLowerCase().includes(this.filterVal.name.toLowerCase()) ||
-            el.joinData
-              .toLowerCase()
-              .includes(this.filterVal.joinData.toLowerCase()) &&
+            el.name.toLowerCase().includes(this.filterVal.name.toLowerCase()) &&
             el.department
               .toLowerCase()
               .includes(this.filterVal.department.toLowerCase()) &&
@@ -48,6 +51,13 @@ export class DataListComponent {
           );
         }))
     );
-    
+  }
+ 
+  // HANDLE GET & FILTER THE EMPLOYYEES DATA 
+  
+
+  // NAVAGATE TO EMPLOYEE DETAILES 
+  handleNavDetailes(id:number){
+     this.route.navigate(["/detailes",id])
   }
 }

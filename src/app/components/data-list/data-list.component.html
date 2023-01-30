@@ -10,19 +10,24 @@
         <th scope="col">Experience</th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let employee of employees; index as i">
+    <tbody *ngIf="employees.length > 0">
+      <tr
+        *ngFor="let employee of employees; index as i"
+        (click)="handleNavDetailes(employee.id)"
+      >
         <th scope="row">{{ i + 1 }}</th>
         <td>{{ employee.name }}</td>
         <td>{{ employee.joinData }}</td>
         <td>{{ employee.department }}</td>
-        <td>{{ employee.salary | number }}</td>
+        <td>{{ employee.salary | currency : " EG " }}</td>
         <td>{{ employee.experience }}</td>
       </tr>
-	  <tr *ngIf="employees.length == 0">
-		<th> <h1 class="text-center">NO INFO</h1> </th>
-	  </tr>
+      <tr>
+        
+      </tr>
     </tbody>
+    
   </table>
-  <button (click)="handleFilteration()" *ngIf="employees.length > 0">kkk</button>
+  <h1 class="text-center text-danger fw-bolder" *ngIf="employees.length == 0">NO INFO</h1>
+  <!-- <a href="" routerLink=""></a> -->
 </section>
