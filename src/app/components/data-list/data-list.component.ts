@@ -18,25 +18,18 @@ export class DataListComponent {
     salary: 0,
     experience: '',
   };
-  // @Output()ActionFilter= new EventEmitter<any>();///////////////////////////////////////////////////////
- 
-  // @Output ActionFilter = new EventEmitter<any>();
-
+  
   employees: FormInterface[] = [];
   constructor(private employeeData: EmployeesService , private route:Router) {}
   // GET FILTER VALUE FROM PARENT COMPONENT
 
- 
   ngOnInit(): void {
     // GET EMPLOYEES DATA FROM EMPLOYEES SERVICE
     this.employeeData.getEmployeesData().subscribe((val) => (this.employees = val));
-
-    // this.ActionFilter.emit(this.handleFilteration)/////////////////////////////////////////////////////////
   }
 
-
-
   ngDoCheck(){
+    // UPDATE VALUE ON CHANGE 
     this.employeeData.getEmployeesData().subscribe(
       (val) =>
         (this.employees = val.filter((el) => {
@@ -53,9 +46,6 @@ export class DataListComponent {
     );
   }
  
-  // HANDLE GET & FILTER THE EMPLOYYEES DATA 
-  
-
   // NAVAGATE TO EMPLOYEE DETAILES 
   handleNavDetailes(id:number){
      this.route.navigate(["/detailes",id])

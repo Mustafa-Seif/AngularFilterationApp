@@ -65,8 +65,4 @@ export class FiltertionComponent {
      this.filterData.salary=this.filterForm.value.salary ;
      this.filterData.experience=this.filterForm.value.experience ;
   };
-
-  handleFilter(fun: any){
-     return fun();
-  };
 };

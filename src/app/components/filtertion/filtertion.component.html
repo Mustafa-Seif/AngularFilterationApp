@@ -7,9 +7,6 @@
     >
       <mat-expansion-panel-header>
         <mat-panel-title> filters panel </mat-panel-title>
-        <mat-panel-description>
-          Currently {{ panelOpenState ? "open" : "closed" }}
-        </mat-panel-description>
       </mat-expansion-panel-header>
       <form [formGroup]="filterForm" (ngSubmit)="handleSubmit()">
         <mat-form-field class="example-full-width w-100" *ngFor="let input of formInputs">
@@ -34,7 +31,6 @@
   <app-data-list
     class="col-md-6"
     [filterVal]="filterData"
-    (ActionFilter)="handleFilter($event)"
   ></app-data-list>
 </div>
 
