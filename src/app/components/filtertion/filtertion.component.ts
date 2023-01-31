@@ -49,7 +49,7 @@ export class FiltertionComponent {
   //  REACTIVE FORM 
   filterForm: FormGroup = new FormGroup({
     name: new FormControl("",[Validators.required]),
-    JoinDate: new FormControl("",[Validators.required]),
+    joinDate: new FormControl("",[Validators.required]),
     salary: new FormControl("",[Validators.required]),
     department: new FormControl("",[Validators.required]),
     experience: new FormControl("",[Validators.required]),

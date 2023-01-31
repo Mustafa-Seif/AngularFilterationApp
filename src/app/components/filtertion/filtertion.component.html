@@ -9,10 +9,18 @@
         <mat-panel-title class="fw-bolder fs-5"> filters panel </mat-panel-title>
       </mat-expansion-panel-header>
       <form [formGroup]="filterForm" (ngSubmit)="handleSubmit()">
-        <mat-form-field class="example-full-width w-100" *ngFor="let input of formInputs">
+      <div *ngFor="let input of formInputs" >
+        <mat-form-field class="example-full-width w-100" *ngIf="(input.type == 'text'||input.type == 'number')">
           <mat-label>{{input.lable}}</mat-label>
           <input matInput  [name]="input.name" [formControlName]="input.name" [type]="input.type"/>
         </mat-form-field>
+        <mat-form-field appearance="fill" *ngIf="input.type == 'date'" class="example-full-width w-100" >
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" [formControlName]="input.name" />
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
         <mat-form-field appearance="fill" class="w-100" *ngFor="let select of formSelect">
           <mat-label>{{select.lable}}</mat-label>
           <mat-select  [formControlName]="select.name">

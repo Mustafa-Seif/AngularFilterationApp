@@ -40,7 +40,7 @@ export class DataListComponent {
               el.name.toLowerCase().includes(this.filterVal.name.toLowerCase()) &&el.salary == this.filterVal.salary &&
               el.department
                 .toLowerCase()
-                .includes(this.filterVal.department.toLowerCase()) &&
+                .includes(this.filterVal.department.toLowerCase()) && 
               el.experience
                 .toLowerCase()
                 .includes(this.filterVal.experience.toLowerCase())
