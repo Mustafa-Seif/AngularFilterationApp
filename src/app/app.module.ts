@@ -14,7 +14,8 @@ import { FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 //  COMPENENTS
 import { AppComponent } from './app.component';
 import { FiltertionComponent } from './components/filtertion/filtertion.component';
@@ -35,9 +36,11 @@ import { DataListComponent } from './components/data-list/data-list.component';
     HttpClientModule,
     MatCardModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

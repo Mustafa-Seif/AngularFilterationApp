@@ -53,7 +53,6 @@ export class FiltertionComponent {
     salary: new FormControl("",[Validators.required]),
     department: new FormControl("",[Validators.required]),
     experience: new FormControl("",[Validators.required]),
-
   })
 
   handleSubmit(){
