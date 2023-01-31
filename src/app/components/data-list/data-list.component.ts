@@ -30,14 +30,14 @@ export class DataListComponent {
       .subscribe((val) => (this.employees = val));
   }
 
-  ngOnChanges() {
-    // FILTERATION EMPLUEES DATA  ON CHANGE
-    if (this.filterVal) {
+  ngOnChanges(change:any):void {
+    // FILTERATION EMPLUEES DATA  ON CHANGE IF this.filterVal !NULL
+    if (this.filterVal.name) {
       this.employeeData.getEmployeesData().subscribe(
         (val) =>
           (this.employees = val.filter((el) => {
             return (
-              el.name.toLowerCase().includes(this.filterVal.name.toLowerCase()) &&
+              el.name.toLowerCase().includes(this.filterVal.name.toLowerCase()) &&el.salary == this.filterVal.salary &&
               el.department
                 .toLowerCase()
                 .includes(this.filterVal.department.toLowerCase()) &&
@@ -48,7 +48,14 @@ export class DataListComponent {
           }))
       );
     }
-  }
+    // GET EMPLOYEES DATA AGAIN FROM SERVICE IF  this.filterVal NULL
+    else{
+      this.employeeData
+      .getEmployeesData()
+      .subscribe((val) => (this.employees = val));
+    }
+    }
+  
 
   // NAVAGATE TO EMPLOYEE DETAILES
   handleNavDetailes(id: number) {

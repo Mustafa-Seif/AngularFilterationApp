@@ -15,7 +15,7 @@
         *ngFor="let employee of employees; index as i"
         (click)="handleNavDetailes(employee.id)"
       >
-        <th scope="row">{{ i + 1 }}</th>
+        <th scope="row">{{ employee.id }}</th>
         <td>{{ employee.name }}</td>
         <td>{{ employee.joinData }}</td>
         <td>{{ employee.department }}</td>
