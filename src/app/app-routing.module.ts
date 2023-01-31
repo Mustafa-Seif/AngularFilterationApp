@@ -5,11 +5,11 @@ import { FiltertionComponent } from './components/filtertion/filtertion.componen
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: FiltertionComponent,
   },
   {
-    path: 'detailes/:id',
+    path: "detailes/:id",
     component: EmployeeCardComponent,
   },
 ];

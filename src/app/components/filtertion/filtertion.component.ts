@@ -45,7 +45,6 @@ export class FiltertionComponent {
    
   // GET DYNAMIC FORM SELECT FROM FORMS SERVICE 
    this.dynamicForm.getFormSelect().subscribe((val)=>this.formSelect = val)
-   console.log(this.formInputs , this.formSelect )
    };
   //  REACTIVE FORM 
   filterForm: FormGroup = new FormGroup({
@@ -59,10 +58,6 @@ export class FiltertionComponent {
 
   handleSubmit(){
     // SAVE VALUES INPUTS IN OBJECT 
-     this.filterData.name=this.filterForm.value.name;
-     this.filterData.joinData =this.filterForm.value.joinData ;
-     this.filterData.department=this.filterForm.value.department ;
-     this.filterData.salary=this.filterForm.value.salary ;
-     this.filterData.experience=this.filterForm.value.experience ;
+    this.filterData={id:0 ,...this.filterForm.value};
   };
 };
