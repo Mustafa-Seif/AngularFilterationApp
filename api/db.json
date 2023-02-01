@@ -128,7 +128,7 @@
       "lable": "name"
     },
     {
-      "name": "JoinDate",
+      "name": "joinDate",
       "type": "date",
       "lable": "Join data"
     },

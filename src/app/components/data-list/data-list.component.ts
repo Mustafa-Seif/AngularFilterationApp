@@ -18,8 +18,9 @@ export class DataListComponent {
     salary: 0,
     experience: '',
   };
-
+  // INITIAL ARRY OF employees DATA
   employees: FormInterface[] = [];
+  
   constructor(private employeeData: EmployeesService, private route: Router) {}
   // GET FILTER VALUE FROM PARENT COMPONENT
 
