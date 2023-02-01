@@ -12,6 +12,7 @@ import { FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class FiltertionComponent {
   constructor(private dynamicForm: FormsService) {}
+  // PANAL STATUS 
   panelOpenState = false;
   // INITIAL VALUES TO DYNAMIC FORM
   formInputs: any[]=[];
@@ -25,6 +26,8 @@ export class FiltertionComponent {
     salary: 0,
     experience: '',
   };
+  // DEFINE INITIAL VALUE STATUS FORM VALUE TO SEND IT TO DATALIST COMPONENT
+  statusForm:string='';
   
   // CLEAR INPUTS VALUES
   handleClear() {
@@ -52,7 +55,10 @@ export class FiltertionComponent {
   })
 
   handleSubmit(){
-    // SAVE VALUES INPUTS IN OBJECT 
+  // SAVE VALUES INPUTS IN OBJECT 
     this.filterData={id:0 ,...this.filterForm.value};
+  // GET  STATUS FORM VALUE FROM REACTIVE FORM ONSUBMIT
+  this.statusForm = this.filterForm.status;
   };
+ 
 };

@@ -18,6 +18,8 @@ export class DataListComponent {
     salary: 0,
     experience: '',
   };
+  // GET  STATUS FORM VALUE FROM FILTERATION COMPONENT
+  @Input() statusForm:string='';
   // INITIAL ARRY OF employees DATA
   employees: FormInterface[] = [];
   
@@ -33,7 +35,7 @@ export class DataListComponent {
 
   ngOnChanges(change:any):void {
     // FILTERATION EMPLUEES DATA  ON CHANGE IF this.filterVal !NULL
-    if (this.filterVal.name && this.filterVal.department) {
+    if (this.statusForm == "VALID" && this.filterVal.name) {
       this.employeeData.getEmployeesData().subscribe(
         (val) =>
           (this.employees = val.filter((el) => {
