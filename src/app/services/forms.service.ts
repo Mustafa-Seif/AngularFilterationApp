@@ -9,7 +9,7 @@ import { FormSelect } from '../interfaces/form-select';
 export class FormsService {
   constructor(private http:HttpClient) { }
   getFormInputs(){
-    return this.http.get<FormInputs[]>("/api/formInput");
+    return this.http.get<any[]>("/api/formInput");
   }
   getFormSelect(){
     return this.http.get<FormSelect[]>("/api/formSelect");

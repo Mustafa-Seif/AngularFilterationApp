@@ -14,8 +14,7 @@ export class FiltertionComponent {
   constructor(private dynamicForm: FormsService) {}
   panelOpenState = false;
   // INITIAL VALUES TO DYNAMIC FORM
-  formInputs: FormInputs[]=[];
-  formSelect:FormSelect[]=[];
+  formInputs: any[]=[];
   arrOfKeys:any;
   // DEFINE INITIAL VALUE FOR INPUTS VALUES
   filterData: FormInterface = {
@@ -42,9 +41,6 @@ export class FiltertionComponent {
    ngOnInit(): void{
   // GET DYNAMIC FORM INPUTS FROM FORMS SERVICE 
     this.dynamicForm.getFormInputs().subscribe((val)=>this.formInputs = val)
-   
-  // GET DYNAMIC FORM SELECT FROM FORMS SERVICE 
-   this.dynamicForm.getFormSelect().subscribe((val)=>this.formSelect = val)
    };
   //  REACTIVE FORM 
   filterForm: FormGroup = new FormGroup({

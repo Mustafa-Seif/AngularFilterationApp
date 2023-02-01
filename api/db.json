@@ -128,25 +128,24 @@
       "lable": "name"
     },
     {
-      "name": "joinDate",
+      "name": "JoinDate",
       "type": "date",
-      "lable": "Join date"
+      "lable": "Join data"
+    },
+    {
+      "name": "department",
+      "type": "select",
+      "lable": "Department",
+      "select": ["Finance", "IT", "Sales"]
     },
     {
       "name": "salary",
       "type": "number",
       "lable": "Salary"
-    }
-  ],
-
-  "formSelect": [
-    {
-      "name": "department",
-      "lable": "Department",
-      "select": ["Finance", "IT", "Sales"]
     },
     {
       "name": "experience",
+      "type": "select",
       "lable": "Experience",
       "select": ["Less than a year", "From 1-3 years", "3 years or above"]
     }

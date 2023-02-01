@@ -32,7 +32,7 @@ export class DataListComponent {
 
   ngOnChanges(change:any):void {
     // FILTERATION EMPLUEES DATA  ON CHANGE IF this.filterVal !NULL
-    if (this.filterVal.name) {
+    if (this.filterVal.name && this.filterVal.department) {
       this.employeeData.getEmployeesData().subscribe(
         (val) =>
           (this.employees = val.filter((el) => {
@@ -55,8 +55,6 @@ export class DataListComponent {
       .subscribe((val) => (this.employees = val));
     }
     }
-  
-
   // NAVAGATE TO EMPLOYEE DETAILES
   handleNavDetailes(id: number) {
     this.route.navigate(['/detailes', id]);
