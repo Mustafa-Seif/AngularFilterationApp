@@ -20,8 +20,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { AppComponent } from './app.component';
 import { FiltertionComponent } from './components/filtertion/filtertion.component';
 import { DataListComponent } from './components/data-list/data-list.component';
+import { ComponentsWrapperComponent } from './components/components-wrapper/components-wrapper.component';
 @NgModule({
-  declarations: [AppComponent, FiltertionComponent, DataListComponent],
+  declarations: [AppComponent, FiltertionComponent, DataListComponent, ComponentsWrapperComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

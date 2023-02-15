@@ -1,5 +1,5 @@
-<div class="row mt-5 custom-container">
-  <section class="filterion col-md-6 mb-3">
+
+  <section class="filterion">
     <mat-expansion-panel
       (opened)="panelOpenState = true"
       [title]="panelOpenState ? 'open filters panel' : 'closed filters panel'"
@@ -68,5 +68,4 @@
       </form>
     </mat-expansion-panel>
   </section>
-  <app-data-list class="col-md-6" [filterVal]="filterData" [statusForm]="statusForm"></app-data-list>
-</div>
+

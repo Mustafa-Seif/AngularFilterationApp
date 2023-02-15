@@ -13,7 +13,7 @@
     <tbody *ngIf="employees.length > 0">
       <tr
         *ngFor="let employee of employees; index as i"
-        (click)="handleNavDetailes(employee.id)" [ngStyle]="{'background-color':employees.length==1?'#5e6ec552':'#'}" 
+        (click)="handleNavDetailes(employee.id)" [ngStyle]="{'background-color':searchDone?'#5e6ec552':'#'}" 
       >
         <th scope="row">{{ employee.id }}</th>
         <td>{{ employee.name }}</td>

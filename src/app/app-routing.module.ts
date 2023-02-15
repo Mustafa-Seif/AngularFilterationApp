@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ComponentsWrapperComponent } from './components/components-wrapper/components-wrapper.component';
 import { EmployeeCardComponent } from './components/employee-card/employee-card.component';
-import { FiltertionComponent } from './components/filtertion/filtertion.component';
+
 
 const routes: Routes = [
+  { path: '', redirectTo: 'employeeslist', pathMatch: 'full' },
   {
-    path: "",
-    component: FiltertionComponent,
+    path: 'employeeslist',
+    component: ComponentsWrapperComponent,
   },
+  
   {
     path: "detailes/:id",
     component: EmployeeCardComponent,
